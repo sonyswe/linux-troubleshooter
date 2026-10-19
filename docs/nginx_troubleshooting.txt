@@ -1,0 +1,30 @@
+cat > /home/swe/docs/disk_space.txt <<'EOF'
+Linux Disk Space Troubleshooting Guide
+
+When a Linux server is running out of disk space, inspect usage before deleting files.
+
+Step 1: Check filesystem usage.
+Command: df -h
+Purpose: Shows filesystem sizes, used space, available space, and usage percentages.
+
+Step 2: Identify large directories.
+Command: sudo du -xhd1 /var 2>/dev/null | sort -hr
+Purpose: Summarizes disk usage under /var on the same filesystem and sorts the largest directories first. This can take time.
+
+Step 3: Inspect log directory sizes.
+Command: sudo du -sh /var/log
+Purpose: Shows the total space used by the log directory.
+
+Step 4: Check inode exhaustion.
+Command: df -i
+Purpose: Shows inode usage. A filesystem can run out of inodes even when some disk space remains.
+
+Step 5: Investigate before deleting.
+Identify large files and determine whether they are safe to remove. Avoid deleting system files or active logs blindly. Consider approved log rotation or cleanup procedures.
+
+Step 6: Verify the result.
+Command: df -h
+Purpose: Confirms whether filesystem usage has decreased.
+
+Explain the observed results before recommending potentially destructive cleanup commands.
+

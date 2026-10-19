@@ -1,0 +1,7 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+rag_vectors.sqlite3
+.env
+.streamlit/secrets.toml

@@ -1,0 +1,13 @@
+Linux Service Troubleshooting
+
+Use systemctl status nginx to check the current status of the Nginx service.
+
+Use journalctl -u nginx -n 50 to inspect the latest 50 log entries for Nginx.
+
+Use sudo nginx -t to check the Nginx configuration for syntax errors.
+
+Use sudo systemctl start nginx to start the Nginx service.
+
+Use sudo systemctl restart nginx to restart the Nginx service.
+
+If Nginx fails to start, inspect its logs and configuration before changing anything.
